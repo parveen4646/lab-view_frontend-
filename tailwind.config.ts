@@ -61,7 +61,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				medical: {
+					success: 'hsl(var(--medical-success))',
+					warning: 'hsl(var(--medical-warning))',
+					danger: 'hsl(var(--medical-danger))',
+					info: 'hsl(var(--medical-info))',
+					neutral: 'hsl(var(--medical-neutral))'
+				},
+				chart: {
+					primary: 'hsl(var(--chart-primary))',
+					secondary: 'hsl(var(--chart-secondary))',
+					tertiary: 'hsl(var(--chart-tertiary))',
+					quaternary: 'hsl(var(--chart-quaternary))'
 				}
+			},
+			boxShadow: {
+				'medical': 'var(--shadow-medical)',
+				'chart': 'var(--shadow-chart)'
+			},
+			backgroundImage: {
+				'chart-gradient': 'var(--chart-gradient)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
