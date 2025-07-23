@@ -73,55 +73,56 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
-      <Card className="w-full max-w-md shadow-2xl border-0 bg-card/80 backdrop-blur-xl relative z-10">
-        <CardHeader className="text-center space-y-3 pb-8">
-          <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-2 shadow-lg">
-            <Stethoscope className="w-8 h-8 text-primary-foreground" />
+    <div className="min-h-screen bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-sm shadow-sm border bg-card">
+        <CardHeader className="text-center space-y-6 pb-8">
+          <div className="mx-auto w-12 h-12 bg-foreground rounded-full flex items-center justify-center">
+            <Stethoscope className="w-6 h-6 text-background" />
           </div>
-          <CardTitle className="text-3xl font-light text-foreground">MedLab</CardTitle>
-          <CardDescription className="text-muted-foreground font-normal">
-            Secure access to your laboratory insights
-          </CardDescription>
+          <div className="space-y-2">
+            <CardTitle className="text-2xl font-light text-foreground">MedLab</CardTitle>
+            <CardDescription className="text-muted-foreground text-sm">
+              Access your laboratory results
+            </CardDescription>
+          </div>
         </CardHeader>
         
-        <CardContent>
+        <CardContent className="px-8 pb-8">
           <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="signin">Sign In</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-muted h-10">
+              <TabsTrigger value="signin" className="text-sm">Sign In</TabsTrigger>
+              <TabsTrigger value="signup" className="text-sm">Sign Up</TabsTrigger>
             </TabsList>
             
             <TabsContent value="signin">
-              <form onSubmit={handleSignIn} className="space-y-5">
+              <form onSubmit={handleSignIn} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="signin-email" className="text-sm font-normal">
+                  <Label htmlFor="signin-email" className="text-sm text-foreground">
                     Email
                   </Label>
                   <Input
                     id="signin-email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
+                    className="h-12 border-border bg-background focus:ring-1 focus:ring-primary"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signin-password" className="text-sm font-normal">
+                  <Label htmlFor="signin-password" className="text-sm text-foreground">
                     Password
                   </Label>
                   <div className="relative">
                     <Input
                       id="signin-password"
                       type={showPassword ? 'text' : 'password'}
-                      placeholder="Enter your password"
+                      placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
+                      className="h-12 border-border bg-background focus:ring-1 focus:ring-primary pr-12"
                       required
                     />
                     <Button
@@ -142,7 +143,7 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-normal transition-all duration-200"
+                  className="w-full h-12 bg-foreground hover:bg-foreground/90 text-background font-normal"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Signing in...' : 'Sign In'}
@@ -151,49 +152,49 @@ const Login = () => {
             </TabsContent>
             
             <TabsContent value="signup">
-              <form onSubmit={handleSignUp} className="space-y-5">
+              <form onSubmit={handleSignUp} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="signup-name" className="text-sm font-normal">
+                  <Label htmlFor="signup-name" className="text-sm text-foreground">
                     Full Name
                   </Label>
                   <Input
                     id="signup-name"
                     type="text"
-                    placeholder="Enter your full name"
+                    placeholder="Your full name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
+                    className="h-12 border-border bg-background focus:ring-1 focus:ring-primary"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-email" className="text-sm font-normal">
+                  <Label htmlFor="signup-email" className="text-sm text-foreground">
                     Email
                   </Label>
                   <Input
                     id="signup-email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
+                    className="h-12 border-border bg-background focus:ring-1 focus:ring-primary"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password" className="text-sm font-normal">
+                  <Label htmlFor="signup-password" className="text-sm text-foreground">
                     Password
                   </Label>
                   <div className="relative">
                     <Input
                       id="signup-password"
                       type={showPassword ? 'text' : 'password'}
-                      placeholder="Create a password"
+                      placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
+                      className="h-12 border-border bg-background focus:ring-1 focus:ring-primary pr-12"
                       required
                     />
                     <Button
@@ -213,17 +214,17 @@ const Login = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="confirm-password" className="text-sm font-normal">
+                  <Label htmlFor="confirm-password" className="text-sm text-foreground">
                     Confirm Password
                   </Label>
                   <div className="relative">
                     <Input
                       id="confirm-password"
                       type={showConfirmPassword ? 'text' : 'password'}
-                      placeholder="Confirm your password"
+                      placeholder="••••••••"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
+                      className="h-12 border-border bg-background focus:ring-1 focus:ring-primary pr-12"
                       required
                     />
                     <Button
@@ -244,7 +245,7 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-normal transition-all duration-200"
+                  className="w-full h-12 bg-foreground hover:bg-foreground/90 text-background font-normal"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Creating account...' : 'Sign Up'}
@@ -253,9 +254,9 @@ const Login = () => {
             </TabsContent>
           </Tabs>
 
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
             <p className="text-xs text-muted-foreground">
-              Demo: any email and password
+              Demo: use any email and password
             </p>
           </div>
         </CardContent>
