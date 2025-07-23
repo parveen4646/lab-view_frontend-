@@ -73,15 +73,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-medical-50 to-medical-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-xl border-0 bg-white/95 backdrop-blur-sm">
-        <CardHeader className="text-center space-y-2">
-          <div className="mx-auto w-12 h-12 bg-medical-600 rounded-full flex items-center justify-center mb-4">
-            <Stethoscope className="w-6 h-6 text-white" />
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      <Card className="w-full max-w-md shadow-2xl border-0 bg-card/80 backdrop-blur-xl relative z-10">
+        <CardHeader className="text-center space-y-3 pb-8">
+          <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-2 shadow-lg">
+            <Stethoscope className="w-8 h-8 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl font-bold text-medical-900">MedLab Portal</CardTitle>
-          <CardDescription className="text-medical-600">
-            Access your laboratory results and health insights
+          <CardTitle className="text-3xl font-light text-foreground">MedLab</CardTitle>
+          <CardDescription className="text-muted-foreground font-normal">
+            Secure access to your laboratory insights
           </CardDescription>
         </CardHeader>
         
@@ -93,24 +94,24 @@ const Login = () => {
             </TabsList>
             
             <TabsContent value="signin">
-              <form onSubmit={handleSignIn} className="space-y-4">
+              <form onSubmit={handleSignIn} className="space-y-5">
                 <div className="space-y-2">
-                  <Label htmlFor="signin-email" className="text-medical-700 font-medium">
-                    Email Address
+                  <Label htmlFor="signin-email" className="text-sm font-normal">
+                    Email
                   </Label>
                   <Input
                     id="signin-email"
                     type="email"
-                    placeholder="doctor@medlab.com"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border-medical-200 focus:border-medical-500 focus:ring-medical-500"
+                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signin-password" className="text-medical-700 font-medium">
+                  <Label htmlFor="signin-password" className="text-sm font-normal">
                     Password
                   </Label>
                   <div className="relative">
@@ -120,7 +121,7 @@ const Login = () => {
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="border-medical-200 focus:border-medical-500 focus:ring-medical-500 pr-10"
+                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
                       required
                     />
                     <Button
@@ -131,9 +132,9 @@ const Login = () => {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <EyeOff className="h-4 w-4 text-medical-500" />
+                        <EyeOff className="h-4 w-4 text-muted-foreground" />
                       ) : (
-                        <Eye className="h-4 w-4 text-medical-500" />
+                        <Eye className="h-4 w-4 text-muted-foreground" />
                       )}
                     </Button>
                   </div>
@@ -141,7 +142,7 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-medical-600 hover:bg-medical-700 text-white py-2.5 font-medium transition-colors"
+                  className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-normal transition-all duration-200"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Signing in...' : 'Sign In'}
@@ -150,39 +151,39 @@ const Login = () => {
             </TabsContent>
             
             <TabsContent value="signup">
-              <form onSubmit={handleSignUp} className="space-y-4">
+              <form onSubmit={handleSignUp} className="space-y-5">
                 <div className="space-y-2">
-                  <Label htmlFor="signup-name" className="text-medical-700 font-medium">
+                  <Label htmlFor="signup-name" className="text-sm font-normal">
                     Full Name
                   </Label>
                   <Input
                     id="signup-name"
                     type="text"
-                    placeholder="Dr. John Smith"
+                    placeholder="Enter your full name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="border-medical-200 focus:border-medical-500 focus:ring-medical-500"
+                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-email" className="text-medical-700 font-medium">
-                    Email Address
+                  <Label htmlFor="signup-email" className="text-sm font-normal">
+                    Email
                   </Label>
                   <Input
                     id="signup-email"
                     type="email"
-                    placeholder="doctor@medlab.com"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border-medical-200 focus:border-medical-500 focus:ring-medical-500"
+                    className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password" className="text-medical-700 font-medium">
+                  <Label htmlFor="signup-password" className="text-sm font-normal">
                     Password
                   </Label>
                   <div className="relative">
@@ -192,7 +193,7 @@ const Login = () => {
                       placeholder="Create a password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="border-medical-200 focus:border-medical-500 focus:ring-medical-500 pr-10"
+                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
                       required
                     />
                     <Button
@@ -203,16 +204,16 @@ const Login = () => {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <EyeOff className="h-4 w-4 text-medical-500" />
+                        <EyeOff className="h-4 w-4 text-muted-foreground" />
                       ) : (
-                        <Eye className="h-4 w-4 text-medical-500" />
+                        <Eye className="h-4 w-4 text-muted-foreground" />
                       )}
                     </Button>
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="confirm-password" className="text-medical-700 font-medium">
+                  <Label htmlFor="confirm-password" className="text-sm font-normal">
                     Confirm Password
                   </Label>
                   <div className="relative">
@@ -222,7 +223,7 @@ const Login = () => {
                       placeholder="Confirm your password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="border-medical-200 focus:border-medical-500 focus:ring-medical-500 pr-10"
+                      className="h-11 bg-background/50 border-0 ring-1 ring-border focus:ring-2 focus:ring-ring rounded-xl pr-12"
                       required
                     />
                     <Button
@@ -233,9 +234,9 @@ const Login = () => {
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     >
                       {showConfirmPassword ? (
-                        <EyeOff className="h-4 w-4 text-medical-500" />
+                        <EyeOff className="h-4 w-4 text-muted-foreground" />
                       ) : (
-                        <Eye className="h-4 w-4 text-medical-500" />
+                        <Eye className="h-4 w-4 text-muted-foreground" />
                       )}
                     </Button>
                   </div>
@@ -243,7 +244,7 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-medical-600 hover:bg-medical-700 text-white py-2.5 font-medium transition-colors"
+                  className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-normal transition-all duration-200"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Creating account...' : 'Sign Up'}
@@ -252,8 +253,8 @@ const Login = () => {
             </TabsContent>
           </Tabs>
 
-          <div className="mt-6 text-center">
-            <p className="text-sm text-medical-600">
+          <div className="mt-8 text-center">
+            <p className="text-xs text-muted-foreground">
               Demo: any email and password
             </p>
           </div>
