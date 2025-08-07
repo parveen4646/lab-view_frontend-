@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8081
+    env_file:
+      - .env
+    networks:
+      - lab-view-network
+
+  # Optional: Include backend service reference
+  backend:
+    image: lab-view-backend:latest  # Assumes backend image is built
+    ports:
+      - "8081:8081"
+    networks:
+      - lab-view-network
+
+networks:
+  lab-view-network:
+    driver: bridge
